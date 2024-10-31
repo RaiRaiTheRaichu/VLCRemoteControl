@@ -1,7 +1,5 @@
 import os
-
 import vlc
-
 import utils
 from discord.ext import commands
 import vlc_handler
@@ -24,15 +22,14 @@ async def add(ctx, file_path: str):
         return
 
     file_path = os.path.join('videos', file_path)
-    file_path_lower = file_path.casefold()
 
-    if not os.path.exists(file_path_lower):
-        await ctx.reply(f'Error: The file "{file_path}" does not exist.\nSearched path: {file_path_lower}.')
+    if not os.path.exists(file_path):
+        await ctx.reply(f'Error: The file "{file_path}" does not exist.\nSearched path: {file_path}.')
         return
 
     media = vlc_handler.vlcInstance.media_new(file_path)
     vlc_handler.media_list.add_media(media)
-    await ctx.reply(f'Added "{file_path}" to the queue.')
+    await ctx.reply(f'Added "{os.path.basename(file_path)}" to the queue.')
 command_list.append(add)
 
 @commands.command(
