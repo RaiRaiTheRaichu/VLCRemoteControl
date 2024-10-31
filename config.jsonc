@@ -1,0 +1,10 @@
+{
+  // Enter a valid discord bot token here.
+  "DISCORD_TOKEN": "replace_me",
+  // String array containing the role names that should be allowed to control this bot.
+  "ALLOWED_ROLES": ["admin"],
+  // String array of channel names that the bot will listen to.
+  // Leaving this blank means the bot will respond to commands in any channel it can see.
+  // NOTE: Not yet implemented...
+  "CHANNEL_WHITELIST": []
+}
